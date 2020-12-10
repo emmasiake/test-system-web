@@ -53,8 +53,11 @@ class SolutionController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $model->generateTestResultArray();
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 

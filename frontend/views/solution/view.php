@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Solution */
 
-$this->title = $model->solution_id;
-$this->params['breadcrumbs'][] = ['label' => 'Solutions', 'url' => ['index']];
+$this->title = $model->task->title;
+$this->params['breadcrumbs'][] = ['label' => 'Solutions', 'url' => ['my']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -30,12 +30,30 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'solution_id',
             'solution:ntext',
-            'task_id',
-            'user_id',
-            'test_result',
-            'result',
             'created_at',
         ],
     ]) ?>
 
+    <table class="table table-bordered">
+        <?php foreach($model->testResultArray['results'] as $key => $resultItem): ?>
+        <tr>
+            <td>Test # <?= $key ?></td>
+            <?php if ($resultItem['message'] == 'Test passed'): ?>
+            <td class="alert alert-success" role="alert">
+                <?= $resultItem['message'] ?>
+            </td>
+            <?php else: ?>
+                <td class="alert alert-danger" role="alert">
+                    <?= $resultItem['message'] ?><br>
+                    <?= $resultItem['error']['message'] ?>
+                </td>
+            <?php endif; ?>
+        </tr>
+        <?php endforeach; ?>
+        <tr>
+            <th>Result</th>
+            <td><?= $model->testResultArray['result'] * 100 . '%' ?></td>
+        </tr>
+
+    </table>
 </div>
