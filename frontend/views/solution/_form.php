@@ -11,7 +11,9 @@ use yii\widgets\ActiveForm;
 <div class="solution-form">
 
     <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($model, 'task_id')->hiddenInput(['value' => $task->task_id])->label(false); ?>
+    <?= $form->field($model, 'task_id')
+        ->hiddenInput(['value' => $task->task_id])
+        ->label(false); ?>
     <?= $form->field($model, 'solution')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">

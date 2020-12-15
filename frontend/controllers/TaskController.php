@@ -83,14 +83,11 @@ class TaskController extends Controller
         if (!Yii::$app->user->can('createTask')) {
             throw new ForbiddenHttpException("User can't create new task");
         }
-
         $model = new Task();
-
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->task_id]);
             }
-
         }
 
         return $this->render('create', [

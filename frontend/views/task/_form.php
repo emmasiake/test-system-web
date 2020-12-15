@@ -14,7 +14,6 @@ use yii\widgets\ActiveForm;
 <div class="task-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -24,7 +23,9 @@ use yii\widgets\ActiveForm;
                 <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
             </div>
             <div class="col-12">
-                <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(Category::find()->asArray()->all(), 'category_id', 'name')) ?>
+                <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(
+                        Category::find()->asArray()->all(), 'category_id', 'name'
+                )) ?>
             </div>
         </div>
         <div class="row">
@@ -49,14 +50,10 @@ use yii\widgets\ActiveForm;
             </div>
         </div>
         <?php endfor; ?>
-
     </div>
-
-
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
-
     <?php ActiveForm::end(); ?>
 
 </div>
