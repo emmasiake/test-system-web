@@ -96,9 +96,9 @@ class Solution extends \yii\db\ActiveRecord
     public function generateWrongResult() {
         $tests = json_decode($this->task->tests, true);
         $testResult = [];
-        foreach($tests['args'] as $item) {
-            $testResult['results'][]['message'] = "Test failed";
-            $testResult['results'][]['error']['message'] = "Error in code";
+        foreach($tests['args'] as $key => $item) {
+            $testResult['results'][$key]['message'] = "Test failed";
+            $testResult['results'][$key]['error']['message'] = "Error in code";
         }
         $testResult['result'] = 0;
         $this->test_result = json_encode($testResult);
