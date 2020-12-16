@@ -92,4 +92,15 @@ class Solution extends \yii\db\ActiveRecord
     {
         $this->testResultArray = json_decode($this->test_result, true);
     }
+
+    public function generateWrongResult() {
+        $tests = json_decode($this->task->tests, true);
+        $testResult = [];
+        foreach($tests['args'] as $item) {
+            $testResult['results'][]['message'] = "Test failed";
+        }
+        $testResult['result'] = 0;
+        $this->test_result = json_encode($testResult);
+
+    }
 }

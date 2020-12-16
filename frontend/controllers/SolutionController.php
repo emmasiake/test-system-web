@@ -86,8 +86,14 @@ class SolutionController extends Controller
             curl_close($curl);
 
             $resultDecoded = json_decode($result, true);
-            $model->test_result = $result;
-            $model->result = $resultDecoded['result'];
+            if (!empty($resultDecoded)) {
+                $model->test_result = $result;
+                $model->result = $resultDecoded['result'];
+            } else {
+                $model->generateWrongResult();
+                $model->result = 0;
+            }
+
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->solution_id]);
             }
@@ -111,7 +117,7 @@ class SolutionController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['my']);
     }
 
     public function actionMy()

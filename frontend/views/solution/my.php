@@ -26,7 +26,14 @@ $this->params['breadcrumbs'][] = ['label' => 'My Solutions'];
                     'attribute' => 'task',
                     'format' => 'raw',
                     'value' => function ($model) {
-                        return Html::a(Html::encode($model->task->title),['view', 'id' => $model->solution_id]);
+                        return Html::a(Html::encode($model->task->title),['task/view', 'id' => $model->task->task_id]);
+                    },
+                ],
+                [
+                    'attribute' => 'solution',
+                    'format' => 'raw',
+                    'value' => function ($model) {
+                        return Html::a("Solution",['view', 'id' => $model->solution_id]);
                     },
                 ],
                 [
