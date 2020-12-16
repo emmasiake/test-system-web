@@ -86,12 +86,13 @@ class SolutionController extends Controller
             curl_close($curl);
 
             $resultDecoded = json_decode($result, true);
-            if (!empty($resultDecoded)) {
-                $model->test_result = $result;
-                $model->result = $resultDecoded['result'];
-            } else {
+            if (empty($result) || empty($resultDecoded['result'])) {
                 $model->generateWrongResult();
                 $model->result = 0;
+            } else {
+
+                $model->test_result = $result;
+                $model->result = $resultDecoded['result'];
             }
 
             if ($model->save()) {

@@ -100,6 +100,7 @@ class Solution extends \yii\db\ActiveRecord
             $testResult['results'][$key]['message'] = "Test failed";
             $testResult['results'][$key]['error']['message'] = "Error in code";
         }
+
         $testResult['result'] = 0;
         $this->test_result = json_encode($testResult);
 
