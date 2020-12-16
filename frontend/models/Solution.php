@@ -98,6 +98,7 @@ class Solution extends \yii\db\ActiveRecord
         $testResult = [];
         foreach($tests['args'] as $item) {
             $testResult['results'][]['message'] = "Test failed";
+            $testResult['results'][]['error']['message'] = "Error in code";
         }
         $testResult['result'] = 0;
         $this->test_result = json_encode($testResult);
