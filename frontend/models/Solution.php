@@ -90,15 +90,22 @@ class Solution extends \yii\db\ActiveRecord
 
     public function generateTestResultArray()
     {
+        if ($this->status == 0) {
+            $this->generateResult(0);
+        }
         $this->testResultArray = json_decode($this->test_result, true);
+
     }
 
-    public function generateWrongResult() {
+    public function generateResult($status = 0) {
+        $statuses = [
+            0 => ['message' => 'Waiting for testing', 'error' => "Waiting"]
+        ];
         $tests = json_decode($this->task->tests, true);
         $testResult = [];
         foreach($tests['args'] as $key => $item) {
-            $testResult['results'][$key]['message'] = "Test failed";
-            $testResult['results'][$key]['error']['message'] = "Error in code";
+            $testResult['results'][$key]['message'] = $statuses[$status]['message'];
+            $testResult['results'][$key]['error']['message'] = $statuses[$status]['error'];
         }
 
         $testResult['result'] = 0;

@@ -72,28 +72,8 @@ class SolutionController extends Controller
         $task = Task::findOne($task_id);
 
         if ($model->load(Yii::$app->request->post())) {
-            $data = http_build_query([
-                'solution' => $model->solution,
-                'function' => $task->function_name,
-                'tests' => $task->tests,
-            ]);
-            $curl = curl_init();
-            curl_setopt($curl, CURLOPT_POST, 1);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-            curl_setopt($curl, CURLOPT_URL, "http://localhost:3000/");
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-            $result = curl_exec($curl);
-            curl_close($curl);
-
-            $resultDecoded = json_decode($result, true);
-            if (empty($result) || empty($resultDecoded['result'])) {
-                $model->generateWrongResult();
-                $model->result = 0;
-            } else {
-
-                $model->test_result = $result;
-                $model->result = $resultDecoded['result'];
-            }
+            $model->test_result = "{}";
+            $model->result = 0;
 
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->solution_id]);
