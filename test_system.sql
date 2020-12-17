@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 08 2020 г., 16:11
+-- Время создания: Дек 17 2020 г., 12:11
 -- Версия сервера: 5.6.37
 -- Версия PHP: 7.0.21
 
@@ -42,6 +42,8 @@ INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 ('admin', '1', 1606220716),
 ('authUser', '3', 1606220716),
 ('authUser', '4', 1607434329),
+('authUser', '5', 1608032352),
+('authUser', '6', 1608034234),
 ('moderator', '2', 1606220716);
 
 -- --------------------------------------------------------
@@ -178,54 +180,21 @@ CREATE TABLE `solution` (
   `user_id` int(11) NOT NULL,
   `test_result` text NOT NULL,
   `result` float NOT NULL,
-  `created_at` datetime NOT NULL
+  `created_at` datetime NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `solution`
 --
 
-INSERT INTO `solution` (`solution_id`, `solution`, `task_id`, `user_id`, `test_result`, `result`, `created_at`) VALUES
-(4, 'function sum(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 01:47:59'),
-(5, 'function sum(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 01:54:33'),
-(6, 'function sum(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 01:56:19'),
-(7, 'function sum(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 01:56:40'),
-(8, 'function sum(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:01:12'),
-(9, 'function sum(a, b) {\r\n  return \"Hello, World\";\r\n}', 1, 1, '', 0, '2020-12-08 02:03:35'),
-(10, 'function sum(a, b) {\r\n  return \"Hello, World\";\r\n}', 1, 1, '', 0, '2020-12-08 02:05:08'),
-(11, 'function (a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:06:40'),
-(12, 'function (a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:09:18'),
-(13, 'function (a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:09:36'),
-(14, 'function (a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:15:07'),
-(15, 'function (a, b) {\r\nreturn a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:24:07'),
-(16, 'function sum(a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:25:13'),
-(17, 'function sum(a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:25:38'),
-(18, 'function sum(a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:25:54'),
-(19, 'function sum(a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:26:49'),
-(20, 'function sum(a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:27:08'),
-(21, 'function sum(a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:38:15'),
-(22, 'function sum(a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:41:19'),
-(23, 'function sum(a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:42:08'),
-(24, 'function sum(a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:42:42'),
-(25, 'function sum(a, b) {\r\n    return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:43:25'),
-(26, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:45:15'),
-(27, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:47:54'),
-(28, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 02:57:11'),
-(29, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:01:28'),
-(30, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:01:58'),
-(31, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:02:33'),
-(32, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:03:10'),
-(33, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:04:47'),
-(34, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:10:27'),
-(35, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:14:15'),
-(36, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:16:05'),
-(37, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:16:29'),
-(38, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:17:26'),
-(39, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '', 0, '2020-12-08 03:18:43'),
-(40, 'function add(a, b) {\r\n  return a + b;\r\n}', 1, 1, '{\"results\":[{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"}],\"result\":1}', 1, '2020-12-08 03:30:09'),
-(43, 'function payment(a) {\r\n  if (a <= 100) {\r\n    return a;\r\n  } else {\r\n    return 100 + (a - 100) * 1.5\r\n  }\r\n}', 14, 4, '{\"results\":[{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"}],\"result\":1}', 1, '2020-12-08 03:50:47'),
-(44, 'function payment(a) {\r\n    return 100 + (a - 100) * 1.5\r\n}', 14, 4, '{\"results\":[{\"message\":\"Test failed\",\"error\":{\"name\":\"AssertionError\",\"message\":\"expected 25 to equal 50\",\"showDiff\":true,\"actual\":\"25\",\"expected\":\"50\",\"stack\":\"AssertionError: expected 25 to equal 50\\n    at Context.<anonymous> (testfunction.js:10:20)\\n    at processImmediate (internal/timers.js:439:21)\"}},{\"message\":\"Test failed\",\"error\":{\"name\":\"AssertionError\",\"message\":\"expected 62.5 to equal 75\",\"showDiff\":true,\"actual\":\"62.5\",\"expected\":\"75\",\"stack\":\"AssertionError: expected 62.5 to equal 75\\n    at Context.<anonymous> (testfunction.js:10:20)\\n    at processImmediate (internal/timers.js:439:21)\"}},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"}],\"result\":0.5}', 0.5, '2020-12-08 03:51:28'),
-(45, 'function  conversion(a, b) {\r\n    var c = (a / b).toFixed(2);\r\n    return c;\r\n}', 15, 4, '{\"results\":[{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"}],\"result\":1}', 1, '2020-12-08 04:02:41');
+INSERT INTO `solution` (`solution_id`, `solution`, `task_id`, `user_id`, `test_result`, `result`, `created_at`, `status`) VALUES
+(75, 'function sum(a, b) {return a + b;}', 17, 3, '{\"results\":[{\"message\":\"Test passed\"},{\"message\":\"Test passed\"}],\"result\":1}', 1, '2020-12-17 09:31:52', 1),
+(76, 'function sum(a, b) {return a + b;}', 17, 3, '{\"results\":[{\"message\":\"Test passed\"},{\"message\":\"Test passed\"}],\"result\":1}', 1, '2020-12-17 09:37:20', 1),
+(77, 'function hypotenuse(a, b) {return Math.sqrt(a * a + b * b);}', 18, 3, '{\"results\":[{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"}],\"result\":1}', 1, '2020-12-17 11:39:39', 1),
+(78, 'function hypotenuse(a, b) {return Math.sqrt(a * a + b * b);}', 18, 3, '{\"results\":[{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"}],\"result\":1}', 1, '2020-12-17 11:43:11', 1),
+(79, 'function sum(a, b) {return a + b;}', 18, 3, '{\"results\":[{\"message\":\"Test failed\",\"error\":{}},{\"message\":\"Test failed\",\"error\":{}},{\"message\":\"Test failed\",\"error\":{}},{\"message\":\"Test failed\",\"error\":{}}],\"result\":0}', 0, '2020-12-17 11:43:38', 1),
+(80, 'function hypotenuse(a, b) {return Math.sqrt(a * a + b * b); } ', 18, 3, '{\"results\":[{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"},{\"message\":\"Test passed\"}],\"result\":1}', 1, '2020-12-17 11:44:22', 1);
 
 -- --------------------------------------------------------
 
@@ -250,16 +219,9 @@ CREATE TABLE `task` (
 --
 
 INSERT INTO `task` (`task_id`, `title`, `description`, `function_name`, `function_description`, `tests`, `category_id`, `user_id`, `created_at`) VALUES
-(1, 'Adding Two Numbers', 'Write a function which adds two numbers.', 'add', 'adding two numbers', '{\"args\":[\"5, 6\",\"7, 8\",\"15, 16\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"result\":[\"11\",\"15\",\"31\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]}', 1, 1, '2020-11-23 00:00:00'),
-(2, 'Square Root of a number', 'Write a function which returns square root of a number', 'square_root', 'Square Root of a number', '', 1, 1, '2020-11-23 11:23:43'),
-(5, 'Hypotenuse', 'Create a function to count hypotenuse', 'hypotenuse', 'hypotenuse in right triangle', '', 1, 2, '2020-11-23 03:14:49'),
-(6, 'Payment', 'Create a functions which will count the total payment for electricity.', 'payment', 'payment for electricity', '', 2, 2, '2020-11-23 03:16:22'),
-(7, 'Create a Timer', 'Make a function which counts time to the end of a day', 'timer', 'timer function', '', 5, 3, '2020-11-23 03:27:07'),
-(9, 'Sum of elements', 'Sum of elements in interval', 'sum_of_elements', 'Sum of elements', '[{\"args\":\"[5, 7]\"},{\"result\":\"18\"},{\"args\":\"[7, 9]\"},{\"result\":\"24\"}]', 5, 1, '2020-12-07 02:25:13'),
-(12, 'Hypotenuse', 'Hypotenuse', 'hypotenuse', 'hypotenuse in right triangle', '{\"args\":[\"3, 4\",\"6, 8\",\"12, 16\",\"24, 32\",\"\",\"\",\"\",\"\",\"\",\"\"],\"result\":[\"5\",\"10\",\"20\",\"40\",\"\",\"\",\"\",\"\",\"\",\"\"]}', 1, 1, '2020-12-08 08:09:24'),
-(13, 'Sum of two numbers', 'Please write a function sum(), which will count sum of two numbers. For example sum(2, 3) returns 5.', 'sum', 'sum of two numbers', '{\"args\":[\"1, 2\",\"5, 6\",\"15, 16\",\"24, 32\",\"1, 0\",\"\",\"\",\"\",\"\",\"\"],\"result\":[\"3\",\"11\",\"31\",\"40\",\"1\",\"\",\"\",\"\",\"\",\"\"]}', 1, 4, '2020-12-08 03:35:07'),
-(14, 'Payment', 'write a function payment() with one argument - a number of kilowatt * hours. If a client uses under 100 kilowatts he pays 1 uah for 1 kilowatt. If he uses more than 100 kilowatts he pays 1.5 hryvnias for 1 kilowatts', 'payment', 'payment for electricity', '{\"args\":[\"50\",\"75\",\"101\",\"150\",\"\",\"\",\"\",\"\",\"\",\"\"],\"result\":[\"50\",\"75\",\"101.5\",\"175\",\"\",\"\",\"\",\"\",\"\",\"\"]}', 2, 4, '2020-12-08 03:48:05'),
-(15, 'Convertion', 'Convert hryvnias to dollars. We have a hryvnias and currency exchange data(how many hryvnias in dollar). Make a function which will count how many dollars do we have.', 'conversion', 'convertion', '{\"args\":[\"1, 27\",\"27, 27\",\"50, 27\",\"5000, 30\",\"\",\"\",\"\",\"\",\"\",\"\"],\"result\":[\"0.04\",\"1\",\"1.85\",\"166.66\",\"\",\"\",\"\",\"\",\"\",\"\"]}', 1, 4, '2020-12-08 03:59:11');
+(17, 'Sum of two numbers', 'Create a function sum(), which takes two arguments and returns their sum.\r\nFor example, for arguments 2, 3 the result must be 5', 'sum', 'Sum of two numbers', '{\"args\":[\"2, 3\",\"3, 4\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],\"result\":[\"5\",\"7\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]}', 1, 6, '2020-12-15 02:19:48'),
+(18, 'Hypotenuse', 'Write a function hypotenuse', 'hypotenuse', 'hypotenuse in right triangle', '{\"args\":[\"3, 4\",\"6, 8\",\"12, 16\",\"24, 32\",\"\",\"\",\"\",\"\",\"\",\"\"],\"result\":[\"5\",\"10\",\"20\",\"40\",\"\",\"\",\"\",\"\",\"\",\"\"]}', 1, 3, '2020-12-16 08:27:29'),
+(19, 'Adding Two Numbers', 'Write a function, which add two numbers and returns a result', 'sum', 'sum of two numbers', '{\"args\":[\"3, 4\",\"4, 5\",\"5, 6\",\"6, 7\",\"\",\"\",\"\",\"\",\"\",\"\"],\"result\":[\"7\",\"9\",\"11\",\"12\",\"\",\"\",\"\",\"\",\"\",\"\"]}', 1, 3, '2020-12-16 12:32:24');
 
 -- --------------------------------------------------------
 
@@ -288,7 +250,9 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (1, 'jane', '6CQPZngit94E4IkXexcJVEei_htaGk4q', '$2y$13$jeSVgFh5ZpvYEsJdzMymXuZruQOpOv5tSW5p5EpFYcahgfDGJxJTS', NULL, 'jane@gmail.com', 10, 1606122909, 1606122909, 'QD6OOpHmVZp-E_Pd9IDnN8H6lNyMqcfq_1606122909'),
 (2, 'John', '2KR64NqxA5kugV49nRkr524ej7LdG6al', '$2y$13$QCzplenQmjSj2gBipoRs0uOCfxwelzdAch/dcE207kOIpkew8bnUK', NULL, 'john@gmail.com', 10, 1606136161, 1606136161, '12iw6XPZRpNH-eW8-78bZWzd8h28x8KW_1606136161'),
 (3, 'Peter', 'OgnUC44Hdvc8zl1CL3tHs15JPBXt2Z25', '$2y$13$Eh8EMHHENcKk7EBM.MJKjuOOLa5jJuOKTgSH3gc6B5lpghPiMLXgq', NULL, 'peter@gmail.com', 10, 1606137723, 1606137723, 'BYDVAMAv813O_rskzn1_GF6njCqh58ts_1606137723'),
-(4, 'Emmanuel', '9Ojfxe3eZ_cILS_TsCSEecHU32vO0INH', '$2y$13$hLt4dalfLqIvKcoULbna8OU1Pt.akTVghOYRdc32eO3FRwTtQJI6i', NULL, 'emmanuel@gmail.com', 10, 1607434329, 1607434329, 'FluDL2HxXiidznCJE7FhbSPxR0y0o8Ai_1607434329');
+(4, 'Emmanuel', '9Ojfxe3eZ_cILS_TsCSEecHU32vO0INH', '$2y$13$hLt4dalfLqIvKcoULbna8OU1Pt.akTVghOYRdc32eO3FRwTtQJI6i', NULL, 'emmanuel@gmail.com', 10, 1607434329, 1607434329, 'FluDL2HxXiidznCJE7FhbSPxR0y0o8Ai_1607434329'),
+(5, 'alex', 'e-wRtWAMMub4F5RzhM6gPyPV3xzWCgYW', '$2y$13$.EXE1cZxHEDeyeRo/HapFuiLwgYdbWKg3LI278Ia22Q.z.Pw6Erqa', NULL, 'alexkuzmenko@gmail.com', 10, 1608032352, 1608032352, '7iSkDliCuxXlw5LkMvx5KnBsU5U1mwwE_1608032352'),
+(6, 'emmasiake', '1TwgyzXC8jmlwXRG1yMxN2Y5WMb8rkKJ', '$2y$13$RSQtxQkT6g2pGvoJK7CH3uHdSR0.0AT5y7lDaHKo9JzGTaW57CodK', NULL, 'emmasiake95@gmail.com', 10, 1608034234, 1608034234, 'KCYusMh1nG8GDwcUrF-uOelJ6xBxAdKw_1608034234');
 
 --
 -- Индексы сохранённых таблиц
@@ -340,7 +304,8 @@ ALTER TABLE `migration`
 ALTER TABLE `solution`
   ADD PRIMARY KEY (`solution_id`),
   ADD KEY `task_id` (`task_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `status` (`status`);
 
 --
 -- Индексы таблицы `task`
@@ -372,17 +337,17 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT для таблицы `solution`
 --
 ALTER TABLE `solution`
-  MODIFY `solution_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `solution_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT для таблицы `task`
 --
 ALTER TABLE `task`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
