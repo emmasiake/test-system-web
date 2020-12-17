@@ -100,13 +100,12 @@ class Solution extends \yii\db\ActiveRecord
 
     public function generateResult($status = 0) {
         $statuses = [
-            0 => ['message' => 'Waiting for testing', 'error' => "Waiting"]
+            0 => ['message' => 'Waiting for testing']
         ];
         $tests = json_decode($this->task->tests, true);
         $testResult = [];
         foreach($tests['args'] as $key => $item) {
             $testResult['results'][$key]['message'] = $statuses[$status]['message'];
-            $testResult['results'][$key]['error']['message'] = $statuses[$status]['error'];
         }
 
         $testResult['result'] = 0;

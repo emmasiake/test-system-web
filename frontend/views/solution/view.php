@@ -44,8 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </td>
             <?php else: ?>
                 <td class="alert alert-danger" role="alert">
-                    <?= $resultItem['message'] ?><br>
-                    <?= $resultItem['error']['message'] ?>
+                    <?= $resultItem['message'] ?>
                 </td>
             <?php endif; ?>
         </tr>
